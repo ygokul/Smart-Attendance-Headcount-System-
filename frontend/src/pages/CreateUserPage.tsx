@@ -2,7 +2,6 @@ import React, { useState, useRef, useCallback, useEffect } from 'react';
 import { Form, Input, Button, Select, Card, message, Row, Col, Image } from 'antd';
 import Webcam from 'react-webcam';
 import api from '../services/api';
-import { useNavigate } from 'react-router-dom';
 
 const { Option } = Select;
 
