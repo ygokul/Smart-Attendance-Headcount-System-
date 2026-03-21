@@ -12,7 +12,6 @@ const CreateUserPage: React.FC = () => {
     const [loading, setLoading] = useState(false);
     const [departments, setDepartments] = useState<any[]>([]);
     const [classes, setClasses] = useState<any[]>([]);
-    const navigate = useNavigate();
     const [form] = Form.useForm();
 
     useEffect(() => {
