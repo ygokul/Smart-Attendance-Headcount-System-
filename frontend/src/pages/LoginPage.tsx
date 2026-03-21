@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Card, Form, Input, Button, message, Checkbox } from 'antd';
+import { Card, Form, Input, Button, message } from 'antd';
 import { UserOutlined, LockOutlined, HomeOutlined } from '@ant-design/icons';
 import api from '../services/api';
 import { useAuth } from '../store/auth';
