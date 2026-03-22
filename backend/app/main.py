@@ -1,5 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
 from contextlib import asynccontextmanager
 from app.core.config import settings
 from app.core.database import db
@@ -31,9 +33,16 @@ app.include_router(attendance.router, tags=["Attendance"], prefix="/attendance")
 app.include_router(reports.router, tags=["Reports"], prefix="/reports")
 app.include_router(settings.router, tags=["Settings"], prefix="/settings")
 
+# Mount static files
+app.mount("/assets", StaticFiles(directory="static/assets"), name="assets")
+
 @app.get("/")
 async def root():
-    return {"message": "Welcome to Face Attendance System API"}
+    return FileResponse("static/index.html")
+
+@app.get("/{path:path}")
+async def serve_spa(path: str):
+    return FileResponse("static/index.html")
 
 if __name__ == "__main__":
     import uvicorn
